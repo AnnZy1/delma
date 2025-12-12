@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.delivery.management.mapper.SetmealDishMapper">
+
+    <!-- 根据套餐ID删除关联菜品 -->
+    <delete id="deleteBySetmealId">
+        DELETE FROM setmeal_dish WHERE setmeal_id = #{setmealId}
+    </delete>
+
+    <!-- 批量插入套餐菜品关联 -->
+    <insert id="insertBatch">
+        INSERT INTO setmeal_dish (setmeal_id, dish_id, name, price, copies, sort) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.setmealId}, #{item.dishId}, #{item.name}, #{item.price}, #{item.copies}, #{item.sort})
+        </foreach>
+    </insert>
+
+</mapper>
+

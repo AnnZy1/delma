@@ -1,0 +1,60 @@
+/**
+ * 样式变量定义
+ */
+
+// 主题色 - 使用更现代的蓝色系
+$primary-color: #3370ff;
+@use "sass:color";
+
+$primary-light-3: color.mix(#fff, $primary-color, 30%);
+$primary-light-5: color.mix(#fff, $primary-color, 50%);
+$primary-light-7: color.mix(#fff, $primary-color, 70%);
+$primary-light-8: color.mix(#fff, $primary-color, 80%);
+$primary-light-9: color.mix(#fff, $primary-color, 90%);
+$primary-dark-2: color.mix(#000, $primary-color, 20%);
+
+$success-color: #67c23a;
+$warning-color: #e6a23c;
+$danger-color: #f56c6c;
+$info-color: #909399;
+
+// 文字颜色
+$text-primary: #303133;
+$text-regular: #606266;
+$text-secondary: #909399;
+$text-placeholder: #c0c4cc;
+
+// 边框颜色
+$border-base: #e5e7eb;
+$border-light: #f3f4f6;
+$border-lighter: #f9fafb;
+$border-extra-light: #fdfdfd;
+
+// 背景色
+$bg-color: #f5f7fa;
+$bg-color-page: #eff1f4; // Slightly darker than white, lighter than gray
+$bg-color-overlay: #ffffff;
+
+// 阴影
+$box-shadow-base: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+$box-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+$box-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$box-shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+// 侧边栏
+$sidebar-width: 220px;
+$sidebar-collapsed-width: 64px;
+$sidebar-bg-color: #304156;
+$sidebar-sub-menu-bg: #1f2d3d;
+$sidebar-text-color: #bfcbd9;
+$sidebar-active-text-color: #409eff;
+$sidebar-logo-height: 50px;
+
+// 头部
+$header-height: 60px;
+$header-bg-color: #fff;
+$tags-view-height: 34px;
+
+// 布局
+$content-padding: 20px;
+$border-radius-base: 8px;
