@@ -88,6 +88,11 @@ public class SetmealServiceImpl implements SetmealService {
             queryWrapper.like(Setmeal::getName, queryDTO.getName());
         }
 
+        // 套餐描述模糊查询
+        if (StringUtils.hasText(queryDTO.getDescription())) {
+            queryWrapper.like(Setmeal::getDescription, queryDTO.getDescription());
+        }
+
         // 按创建时间倒序排列
         queryWrapper.orderByDesc(Setmeal::getCreateTime);
 

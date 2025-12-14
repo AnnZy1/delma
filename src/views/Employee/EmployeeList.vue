@@ -183,17 +183,15 @@ const queryParams = reactive({
 })
 
 // 查询列表
-const handleQuery = async (pageNum, pageSize) => {
-  if (pageNum) {
-    queryParams.pageNum = pageNum
-  }
-  if (pageSize) {
-    queryParams.pageSize = pageSize
-  }
-  
+const handleQuery = async () => {
   loading.value = true
   try {
-    const res = await getEmployeeList(queryParams)
+    // 处理查询参数，空字符串转为 null
+    const params = { ...queryParams }
+    if (params.branchId === '') params.branchId = null
+    if (params.status === '') params.status = null
+    
+    const res = await getEmployeeList(params)
     if (res.code === 200) {
       tableData.value = res.data.list.map(item => ({
         ...item,
@@ -231,7 +229,7 @@ const handleReset = () => {
     branchId: !userStore.isAdmin ? userStore.branchId : null,
     status: null
   })
-  handleQuery(1, 10)
+  handleQuery()
 }
 
 // 新增

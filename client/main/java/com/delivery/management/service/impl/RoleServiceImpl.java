@@ -66,6 +66,11 @@ public class RoleServiceImpl implements RoleService {
             queryWrapper.like(Role::getName, queryDTO.getName());
         }
 
+        // 描述模糊查询
+        if (StringUtils.hasText(queryDTO.getDescription())) {
+            queryWrapper.like(Role::getDescription, queryDTO.getDescription());
+        }
+
         // 按创建时间倒序排列
         queryWrapper.orderByDesc(Role::getCreateTime);
 

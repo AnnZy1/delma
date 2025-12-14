@@ -113,6 +113,11 @@ public class DishServiceImpl implements DishService {
             if (StringUtils.hasText(queryDTO.getName())) {
                 whereClause.append(" AND name LIKE '%").append(queryDTO.getName()).append("%'");
             }
+
+            // 菜品描述模糊查询
+            if (StringUtils.hasText(queryDTO.getDescription())) {
+                whereClause.append(" AND description LIKE '%").append(queryDTO.getDescription()).append("%'");
+            }
             
             // 计算总记录数
             String countSql = "SELECT COUNT(*) FROM dish " + whereClause;
@@ -167,11 +172,16 @@ public class DishServiceImpl implements DishService {
             }
 
             // 菜品名称模糊查询
-            if (StringUtils.hasText(queryDTO.getName())) {
-                queryWrapper.like(Dish::getName, queryDTO.getName());
-            }
+        if (StringUtils.hasText(queryDTO.getName())) {
+            queryWrapper.like(Dish::getName, queryDTO.getName());
+        }
 
-            // 按创建时间倒序排列
+        // 菜品描述模糊查询
+        if (StringUtils.hasText(queryDTO.getDescription())) {
+            queryWrapper.like(Dish::getDescription, queryDTO.getDescription());
+        }
+
+        // 售卖状态       // 按创建时间倒序排列
             queryWrapper.orderByDesc(Dish::getCreateTime);
             
             // 设置分页参数

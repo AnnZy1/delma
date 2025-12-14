@@ -45,6 +45,11 @@ public class DishPageQueryDTO implements Serializable {
     private String name;
 
     /**
+     * 菜品描述（模糊查询）
+     */
+    private String description;
+
+    /**
      * 是否显示已删除菜品：0-不显示 1-显示
      */
     private Integer showDeleted;

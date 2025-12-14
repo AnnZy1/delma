@@ -25,16 +25,6 @@
                 />
               </el-select>
             </el-form-item>
-            <el-form-item label="分店" v-if="userStore.isAdmin">
-              <el-select v-model="queryParams.branchId" placeholder="请选择分店" clearable>
-                <el-option
-                  v-for="branch in branchList"
-                  :key="branch.id"
-                  :label="branch.name"
-                  :value="branch.id"
-                />
-              </el-select>
-            </el-form-item>
             <el-form-item label="分类">
               <el-select v-model="queryParams.categoryId" placeholder="请选择分类" clearable>
                 <el-option
@@ -314,7 +304,13 @@ const uploadHeaders = computed(() => {
 const handleQuery = async () => {
   loading.value = true
   try {
-    const res = await getDishList(queryParams)
+    // 处理查询参数，空字符串转为 null
+    const params = { ...queryParams }
+    if (params.categoryId === '') params.categoryId = null
+    if (params.branchId === '') params.branchId = null
+    if (params.status === '') params.status = null
+    
+    const res = await getDishList(params)
     if (res.code === 200) {
       tableData.value = res.data.list.map(item => ({
         ...item,

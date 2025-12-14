@@ -78,6 +78,16 @@ public class OrderServiceImpl implements OrderService {
             queryWrapper.like(Orders::getNumber, queryDTO.getNumber());
         }
 
+        // 订单备注模糊查询
+        if (StringUtils.hasText(queryDTO.getRemark())) {
+            queryWrapper.like(Orders::getRemark, queryDTO.getRemark());
+        }
+
+        // 详细地址模糊查询
+        if (StringUtils.hasText(queryDTO.getAddress())) {
+            queryWrapper.like(Orders::getAddress, queryDTO.getAddress());
+        }
+
         // 收货人模糊查询
         if (StringUtils.hasText(queryDTO.getConsignee())) {
             queryWrapper.like(Orders::getConsignee, queryDTO.getConsignee());

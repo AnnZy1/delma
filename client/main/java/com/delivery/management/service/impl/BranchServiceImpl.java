@@ -66,6 +66,21 @@ public class BranchServiceImpl implements BranchService {
             queryWrapper.like(Branch::getName, queryDTO.getName());
         }
 
+        // 分店地址模糊查询
+        if (StringUtils.hasText(queryDTO.getAddress())) {
+            queryWrapper.like(Branch::getAddress, queryDTO.getAddress());
+        }
+
+        // 联系人模糊查询
+        if (StringUtils.hasText(queryDTO.getContactName())) {
+            queryWrapper.like(Branch::getContactName, queryDTO.getContactName());
+        }
+
+        // 联系人手机号模糊查询
+        if (StringUtils.hasText(queryDTO.getContactPhone())) {
+            queryWrapper.like(Branch::getContactPhone, queryDTO.getContactPhone());
+        }
+
         // 分店状态
         if (queryDTO.getStatus() != null) {
             queryWrapper.eq(Branch::getStatus, queryDTO.getStatus());

@@ -28,5 +28,10 @@ public class RolePageQueryDTO implements Serializable {
      * 角色名称（模糊查询）
      */
     private String name;
+
+    /**
+     * 描述（模糊查询）
+     */
+    private String description;
 }
 

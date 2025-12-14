@@ -43,5 +43,10 @@ public class SetmealPageQueryDTO implements Serializable {
      * 套餐名称（模糊查询）
      */
     private String name;
+
+    /**
+     * 套餐描述（模糊查询）
+     */
+    private String description;
 }
 

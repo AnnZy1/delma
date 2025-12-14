@@ -62,9 +62,19 @@ public class EmployeeServiceImpl implements EmployeeService {
             queryWrapper.like(Employee::getName, queryDTO.getName());
         }
 
+        // 用户名模糊查询
+        if (StringUtils.hasText(queryDTO.getUsername())) {
+            queryWrapper.like(Employee::getUsername, queryDTO.getUsername());
+        }
+
         // 手机号模糊查询
         if (StringUtils.hasText(queryDTO.getPhone())) {
             queryWrapper.like(Employee::getPhone, queryDTO.getPhone());
+        }
+
+        // 身份证号模糊查询
+        if (StringUtils.hasText(queryDTO.getIdNumber())) {
+            queryWrapper.like(Employee::getIdNumber, queryDTO.getIdNumber());
         }
 
         // 角色ID

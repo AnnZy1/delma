@@ -30,6 +30,21 @@ public class BranchPageQueryDTO implements Serializable {
     private String name;
 
     /**
+     * 分店地址（模糊查询）
+     */
+    private String address;
+
+    /**
+     * 联系人（模糊查询）
+     */
+    private String contactName;
+
+    /**
+     * 联系人手机号（模糊查询）
+     */
+    private String contactPhone;
+
+    /**
      * 分店状态：1-启用 0-禁用
      */
     private Integer status;

@@ -30,9 +30,19 @@ public class EmployeePageQueryDTO implements Serializable {
     private String name;
 
     /**
+     * 用户名（模糊查询）
+     */
+    private String username;
+
+    /**
      * 手机号（模糊查询）
      */
     private String phone;
+
+    /**
+     * 身份证号（模糊查询）
+     */
+    private String idNumber;
 
     /**
      * 角色ID

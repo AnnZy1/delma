@@ -58,5 +58,15 @@ public class OrderPageQueryDTO implements Serializable {
      * 分店ID
      */
     private Long branchId;
+
+    /**
+     * 订单备注（模糊查询）
+     */
+    private String remark;
+
+    /**
+     * 详细地址（模糊查询）
+     */
+    private String address;
 }
 

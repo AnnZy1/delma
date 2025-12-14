@@ -102,7 +102,11 @@ const queryParams = reactive({
 const handleQuery = async () => {
   loading.value = true
   try {
-    const res = await getBranchList(queryParams)
+    // 处理查询参数，空字符串转为 null
+    const params = { ...queryParams }
+    if (params.status === '') params.status = null
+    
+    const res = await getBranchList(params)
     if (res.code === 200) {
       tableData.value = res.data.list.map(item => ({
         ...item,

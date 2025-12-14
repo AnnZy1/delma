@@ -205,7 +205,13 @@ const queryParams = reactive({
 const handleQuery = async () => {
   loading.value = true
   try {
-    const res = await getSetmealList(queryParams)
+    // 处理查询参数，空字符串转为 null
+    const params = { ...queryParams }
+    if (params.categoryId === '') params.categoryId = null
+    if (params.branchId === '') params.branchId = null
+    if (params.status === '') params.status = null
+    
+    const res = await getSetmealList(params)
     if (res.code === 200) {
       tableData.value = res.data.list.map(item => ({
         ...item,
