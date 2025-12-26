@@ -33,9 +33,6 @@ import java.util.Map;
 
 /**
  * 认证服务实现类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @Service

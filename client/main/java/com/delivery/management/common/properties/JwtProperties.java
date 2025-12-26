@@ -5,9 +5,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * JWT 配置属性类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Component
 @ConfigurationProperties(prefix = "delivery.jwt")

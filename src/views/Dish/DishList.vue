@@ -37,7 +37,7 @@
             </el-form-item>
             <el-form-item label="状态">
               <el-select v-model="queryParams.status" placeholder="请选择状态" clearable>
-                <el-option label="起售" :value="1" />
+                <el-option label="启售" :value="1" />
                 <el-option label="停售" :value="0" />
               </el-select>
             </el-form-item>
@@ -49,8 +49,8 @@
         </div>
       </el-tab-pane>
       
-      <!-- Tab 2: 回收站 -->
-      <el-tab-pane label="回收站" name="deleted">
+      <!-- Tab 2: 下架菜品 -->
+      <el-tab-pane label="下架菜品" name="deleted">
         <div class="search-container">
           <el-form :model="queryParams" :inline="true">
             <el-form-item label="菜品名称">
@@ -94,7 +94,7 @@
             :disabled="!selectedIds.length" 
             @click="handleBatchOnSale"
           >
-            批量起售
+            批量启售
           </el-button>
           <el-button 
             v-if="activeTab === 'active'"
@@ -177,14 +177,14 @@
             <!-- 在售/待售列表的状态显示 -->
             <template v-if="activeTab === 'active'">
               <el-tag :type="row.status === 1 ? 'success' : 'info'" effect="dark">
-                {{ row.status === 1 ? '起售' : '停售' }}
+                {{ row.status === 1 ? '启售' : '停售' }}
               </el-tag>
             </template>
             
             <!-- 回收站的状态显示（灰色不可操作） -->
             <template v-if="activeTab === 'deleted'">
               <el-tag type="info" effect="plain" :disable-transitions="true">
-                {{ row.status === 1 ? '已删除(原起售)' : '已删除(原停售)' }}
+                {{ row.status === 1 ? '已删除(原启售)' : '已删除(原停售)' }}
               </el-tag>
             </template>
           </template>
@@ -398,14 +398,14 @@ const handleDelete = async (row) => {
   }
 }
 
-// 批量起售
+// 批量启售
 const handleBatchOnSale = async () => {
   try {
-    await ElMessageBox.confirm(`确定要起售选中的 ${selectedIds.value.length} 个菜品吗？`, '提示', {
+    await ElMessageBox.confirm(`确定要启售选中的 ${selectedIds.value.length} 个菜品吗？`, '提示', {
       type: 'warning'
     })
     await batchDish({ ids: selectedIds.value, operation: 'enable' })
-    ElMessage.success('批量起售成功')
+    ElMessage.success('批量启售成功')
     handleQuery()
   } catch (error) {
     if (error !== 'cancel') console.error(error)

@@ -4,9 +4,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * 密码加密工具类
- * 
- * @author system
- * @date 2025-01-15
  */
 public class PasswordUtil {
 

@@ -4,9 +4,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 通用服务接口
- * 
- * @author system
- * @date 2025-01-15
  */
 public interface CommonService {
 

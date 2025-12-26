@@ -6,9 +6,6 @@ import java.util.List;
 
 /**
  * 数据统计服务接口
- * 
- * @author system
- * @date 2025-01-15
  */
 public interface StatService {
 

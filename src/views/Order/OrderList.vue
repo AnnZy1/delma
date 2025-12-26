@@ -66,6 +66,7 @@
         </el-table-column>
         <el-table-column prop="orderTime" label="下单时间" min-width="180" sortable />
         <el-table-column prop="branchName" label="分店" min-width="150" show-overflow-tooltip />
+        <el-table-column v-if="activeStatus === '6'" prop="cancelReason" label="取消原因" min-width="150" show-overflow-tooltip />
         <el-table-column label="操作" width="220" fixed="right" align="center">
           <template #default="{ row }">
             <el-button link type="primary" @click="handleDetail(row)">详情</el-button>

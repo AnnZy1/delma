@@ -20,13 +20,11 @@ public class DishBatchDTO implements Serializable {
     /**
      * 菜品ID列表
      */
-    @NotEmpty(message = "菜品ID列表不能为空")
     private List<Long> ids;
 
     /**
-     * 操作类型：enable-起售 disable-停售
+     * 操作类型：enable-启售 disable-停售
      */
-    @NotNull(message = "操作类型不能为空")
     private String operation;
 }
 

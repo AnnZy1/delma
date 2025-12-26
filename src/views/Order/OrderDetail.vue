@@ -17,6 +17,7 @@
         <el-descriptions-item label="下单时间">{{ orderDetail?.orderTime }}</el-descriptions-item>
         <el-descriptions-item label="分店">{{ orderDetail?.branchName }}</el-descriptions-item>
         <el-descriptions-item label="备注" :span="2">{{ orderDetail?.remark || '-' }}</el-descriptions-item>
+        <el-descriptions-item label="取消原因" :span="2" v-if="orderDetail?.cancelReason">{{ orderDetail?.cancelReason }}</el-descriptions-item>
       </el-descriptions>
 
       <el-divider>商品明细</el-divider>

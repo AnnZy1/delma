@@ -18,9 +18,6 @@ import com.delivery.management.common.properties.JwtProperties;
 
 /**
  * JWT 工具类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @Component

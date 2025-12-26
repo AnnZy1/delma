@@ -9,9 +9,6 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Knife4j (Swagger)配置类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Configuration
 public class Knife4jConfig {

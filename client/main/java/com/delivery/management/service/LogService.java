@@ -5,9 +5,6 @@ import com.github.pagehelper.PageInfo;
 
 /**
  * 日志服务接口
- * 
- * @author system
- * @date 2025-01-15
  */
 public interface LogService {
 

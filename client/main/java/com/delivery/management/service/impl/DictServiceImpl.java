@@ -41,7 +41,7 @@ public class DictServiceImpl implements DictService {
         queryWrapper.eq(Dict::getStatus, 1); // 只查询启用的字典
 
         // 按排序值升序排列
-        queryWrapper.orderByAsc(Dict::getSort);
+        queryWrapper.orderByAsc(Dict::getSort, Dict::getId);
 
         // 执行查询
         List<Dict> dictList = dictMapper.selectList(queryWrapper);

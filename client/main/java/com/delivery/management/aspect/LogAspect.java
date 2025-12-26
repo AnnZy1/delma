@@ -24,9 +24,6 @@ import java.time.LocalDateTime;
 
 /**
  * 操作日志切面
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @Aspect

@@ -5,9 +5,6 @@ import com.github.pagehelper.PageInfo;
 
 /**
  * 分类服务接口
- * 
- * @author system
- * @date 2025-01-15
  */
 public interface CategoryService {
 

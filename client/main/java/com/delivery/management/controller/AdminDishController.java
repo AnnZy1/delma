@@ -14,9 +14,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 管理员菜品控制器
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @RestController
@@ -94,7 +91,7 @@ public class AdminDishController {
         dishService.batchOperation(batchDTO);
         
         String operationName = switch (batchDTO.getOperation()) {
-            case "enable" -> "起售";
+            case "enable" -> "启售";
             case "disable" -> "停售";
             default -> "操作";
         };

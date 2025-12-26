@@ -120,7 +120,7 @@ public class OrderServiceImpl implements OrderService {
         }
 
         // 按下单时间倒序排列
-        queryWrapper.orderByDesc(Orders::getOrderTime);
+        queryWrapper.orderByDesc(Orders::getOrderTime, Orders::getId);
 
         // 执行查询
         List<Orders> ordersList = ordersMapper.selectList(queryWrapper);

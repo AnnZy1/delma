@@ -2,9 +2,6 @@ package com.delivery.management.common.context;
 
 /**
  * 基于 ThreadLocal 封装工具类，用于保存和获取当前登录用户ID
- * 
- * @author system
- * @date 2025-01-15
  */
 public class BaseContext {
 

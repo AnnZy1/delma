@@ -36,7 +36,7 @@ public class PermissionServiceImpl implements PermissionService {
         // 1. 查询所有启用状态的权限
         LambdaQueryWrapper<Permission> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Permission::getStatus, 1);
-        queryWrapper.orderByAsc(Permission::getSort);
+        queryWrapper.orderByAsc(Permission::getSort, Permission::getId);
         List<Permission> permissionList = permissionMapper.selectList(queryWrapper);
 
         // 2. 转换为VO列表

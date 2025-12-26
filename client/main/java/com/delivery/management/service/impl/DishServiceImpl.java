@@ -182,7 +182,7 @@ public class DishServiceImpl implements DishService {
         }
 
         // 售卖状态       // 按创建时间倒序排列
-            queryWrapper.orderByDesc(Dish::getCreateTime);
+            queryWrapper.orderByDesc(Dish::getCreateTime, Dish::getId);
             
             // 设置分页参数
             PageHelper.startPage(queryDTO.getPageNum(), queryDTO.getPageSize());
@@ -422,18 +422,22 @@ public class DishServiceImpl implements DishService {
             throw new BusinessException("菜品ID列表不能为空");
         }
 
+        if (operation == null) {
+            throw new BusinessException("操作类型不能为空");
+        }
+
         // 安全获取当前用户ID
         Long currentUserId = BaseContext.getCurrentId();
         
         // 执行批量操作
         switch (operation) {
             case "enable":
-                // 批量起售
+                // 批量启售
                 LambdaUpdateWrapper<Dish> enableWrapper = new LambdaUpdateWrapper<>();
                 enableWrapper.in(Dish::getId, ids);
                 enableWrapper.set(Dish::getStatus, 1);
                 dishMapper.update(null, enableWrapper);
-                log.info("批量起售{}个菜品成功", ids.size());
+                log.info("批量启售{}个菜品成功", ids.size());
                 break;
 
             case "disable":
@@ -488,7 +492,7 @@ public class DishServiceImpl implements DishService {
                 saveDTO.setPrice(excelDTO.getPrice());
                 saveDTO.setSpecifications(excelDTO.getSpecifications());
                 saveDTO.setDescription(excelDTO.getDescription());
-                saveDTO.setStatus("起售".equals(excelDTO.getStatus()) ? 1 : 0);
+                saveDTO.setStatus("启售".equals(excelDTO.getStatus()) ? 1 : 0);
                 saveDTO.setBranchId(branchId);
 
                 // 解析口味（格式：name1:value1;name2:value2）
@@ -539,7 +543,7 @@ public class DishServiceImpl implements DishService {
             excelDTO.setPrice(dish.getPrice());
             excelDTO.setSpecifications(dish.getSpecifications());
             excelDTO.setDescription(dish.getDescription());
-            excelDTO.setStatus(dish.getStatus() == 1 ? "起售" : "停售");
+            excelDTO.setStatus(dish.getStatus() == 1 ? "启售" : "停售");
             
             // 拼接口味
             if (dish.getFlavors() != null && !dish.getFlavors().isEmpty()) {

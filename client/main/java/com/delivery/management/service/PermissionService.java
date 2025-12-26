@@ -5,9 +5,6 @@ import java.util.List;
 
 /**
  * 权限服务接口
- * 
- * @author system
- * @date 2025-01-15
  */
 public interface PermissionService {
 

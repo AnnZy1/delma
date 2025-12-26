@@ -13,9 +13,6 @@ import java.util.stream.Collectors;
 
 /**
  * 全局异常处理器
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @RestControllerAdvice

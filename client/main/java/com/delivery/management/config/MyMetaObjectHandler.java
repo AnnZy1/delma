@@ -10,9 +10,6 @@ import java.time.LocalDateTime;
 
 /**
  * MyBatis-Plus 自动填充处理器
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @Component

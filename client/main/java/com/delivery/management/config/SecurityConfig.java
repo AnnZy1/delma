@@ -20,9 +20,6 @@ import org.springframework.web.cors.CorsConfiguration;
 
 /**
  * Spring Security配置类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @Configuration

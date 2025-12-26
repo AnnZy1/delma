@@ -61,13 +61,13 @@ export const CATEGORY_TYPE_LABELS = {
 
 // 商品状态
 export const PRODUCT_STATUS = {
-  ON_SALE: 1, // 起售
+  ON_SALE: 1, // 启售
   OFF_SALE: 0 // 停售
 }
 
 // 商品状态标签
 export const PRODUCT_STATUS_LABELS = {
-  [PRODUCT_STATUS.ON_SALE]: '起售',
+  [PRODUCT_STATUS.ON_SALE]: '启售',
   [PRODUCT_STATUS.OFF_SALE]: '停售'
 }
 
@@ -83,7 +83,7 @@ export const BATCH_OPERATION = {
   LOCK: 'lock', // 锁定
   UNLOCK: 'unlock', // 启用
   DELETE: 'delete', // 删除
-  ON_SALE: 'onSale', // 起售
+  ON_SALE: 'onSale', // 启售
   OFF_SALE: 'offSale' // 停售
 }
 
@@ -92,7 +92,7 @@ export const BATCH_OPERATION_LABELS = {
   [BATCH_OPERATION.LOCK]: '锁定',
   [BATCH_OPERATION.UNLOCK]: '启用',
   [BATCH_OPERATION.DELETE]: '删除',
-  [BATCH_OPERATION.ON_SALE]: '起售',
+  [BATCH_OPERATION.ON_SALE]: '启售',
   [BATCH_OPERATION.OFF_SALE]: '停售'
 }
 

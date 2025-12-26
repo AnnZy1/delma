@@ -64,7 +64,7 @@
         <el-col :span="12">
           <el-form-item label="状态" prop="status">
             <el-radio-group v-model="form.status">
-              <el-radio :label="1" border>起售</el-radio>
+              <el-radio :label="1" border>启售</el-radio>
               <el-radio :label="0" border>停售</el-radio>
             </el-radio-group>
           </el-form-item>

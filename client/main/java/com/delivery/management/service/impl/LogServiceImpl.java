@@ -94,7 +94,7 @@ public class LogServiceImpl implements LogService {
         }
 
         // 按登录时间倒序排列
-        queryWrapper.orderByDesc(LoginLog::getLoginTime);
+        queryWrapper.orderByDesc(LoginLog::getLoginTime, LoginLog::getId);
 
         // 设置分页参数
         PageHelper.startPage(queryDTO.getPageNum(), queryDTO.getPageSize());

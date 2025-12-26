@@ -7,9 +7,6 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 登录失败尝试缓存
  * 用于记录登录失败次数，实现账号锁定功能
- * 
- * @author system
- * @date 2025-01-15
  */
 public class LoginAttemptCache {
 

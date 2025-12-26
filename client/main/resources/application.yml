@@ -87,7 +87,7 @@ knife4j:
       email: dev@example.com
     # 服务地址
     servers:
-      - url: http://localhost:8721/api
+      - url: http://localhost:8080/api/doc.html
         description: 开发环境
       - url: https://prod-domain.com/api
         description: 生产环境
@@ -102,5 +102,7 @@ logging:
     file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n"
   file:
     name: ./logs/deliver-management.log
-    max-size: 10MB
-    max-history: 30
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 30

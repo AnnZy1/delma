@@ -2,9 +2,6 @@ package com.delivery.management.common.exception;
 
 /**
  * 业务异常类
- * 
- * @author system
- * @date 2025-01-15
  */
 public class BusinessException extends RuntimeException {
 

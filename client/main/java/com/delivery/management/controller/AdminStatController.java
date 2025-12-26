@@ -13,9 +13,6 @@ import java.util.List;
 
 /**
  * 管理员数据统计控制器
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @RestController

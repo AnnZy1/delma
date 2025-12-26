@@ -6,9 +6,6 @@ import com.delivery.management.dto.UnlockDTO;
 
 /**
  * 认证服务接口
- * 
- * @author system
- * @date 2025-01-15
  */
 public interface AuthService {
 

@@ -286,6 +286,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (ids == null || ids.isEmpty()) {
             throw new BusinessException("员工ID列表不能为空");
         }
+        
+        if (operation == null) {
+            throw new BusinessException("操作类型不能为空");
+        }
+
+
 
         // 查询员工列表
         List<Employee> employeeList = employeeMapper.selectBatchIds(ids);

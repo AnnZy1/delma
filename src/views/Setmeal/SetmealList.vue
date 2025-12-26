@@ -33,7 +33,7 @@
         </el-form-item>
         <el-form-item label="状态">
           <el-select v-model="queryParams.status" placeholder="请选择状态" clearable>
-            <el-option label="起售" :value="1" />
+            <el-option label="启售" :value="1" />
             <el-option label="停售" :value="0" />
           </el-select>
         </el-form-item>
@@ -55,7 +55,7 @@
             :disabled="!selectedIds.length" 
             @click="handleBatchOnSale"
           >
-            批量起售
+            批量启售
           </el-button>
           <el-button 
             type="danger" 
@@ -124,7 +124,7 @@
         <el-table-column prop="status" label="状态" width="100" align="center">
           <template #default="{ row }">
             <el-tag :type="row.status === 1 ? 'success' : 'info'" effect="dark">
-              {{ row.status === 1 ? '起售' : '停售' }}
+              {{ row.status === 1 ? '启售' : '停售' }}
             </el-tag>
           </template>
         </el-table-column>
@@ -298,14 +298,14 @@ const handleDelete = async (row) => {
   }
 }
 
-// 批量起售
+// 批量启售
 const handleBatchOnSale = async () => {
   try {
-    await ElMessageBox.confirm(`确定要起售选中的 ${selectedIds.value.length} 个套餐吗？`, '提示', {
+    await ElMessageBox.confirm(`确定要启售选中的 ${selectedIds.value.length} 个套餐吗？`, '提示', {
       type: 'warning'
     })
-    await batchSetmeal({ ids: selectedIds.value, status: 1 })
-    ElMessage.success('批量起售成功')
+    await batchSetmeal({ ids: selectedIds.value, operation: 'enable' })
+    ElMessage.success('批量启售成功')
     handleQuery()
   } catch (error) {
     if (error !== 'cancel') console.error(error)
@@ -318,7 +318,7 @@ const handleBatchOffSale = async () => {
     await ElMessageBox.confirm(`确定要停售选中的 ${selectedIds.value.length} 个套餐吗？`, '提示', {
       type: 'warning'
     })
-    await batchSetmeal({ ids: selectedIds.value, status: 0 })
+    await batchSetmeal({ ids: selectedIds.value, operation: 'disable' })
     ElMessage.success('批量停售成功')
     handleQuery()
   } catch (error) {

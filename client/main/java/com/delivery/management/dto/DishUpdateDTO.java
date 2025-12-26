@@ -56,7 +56,7 @@ public class DishUpdateDTO implements Serializable {
     private String description;
 
     /**
-     * 售卖状态：1-起售 0-停售
+     * 售卖状态：1-启售 0-停售
      */
     private Integer status;
 

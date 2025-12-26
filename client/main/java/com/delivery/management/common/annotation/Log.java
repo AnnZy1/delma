@@ -7,9 +7,6 @@ import java.lang.annotation.Target;
 
 /**
  * 操作日志注解
- * 
- * @author system
- * @date 2025-01-15
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

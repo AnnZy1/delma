@@ -79,7 +79,7 @@ public class CategoryServiceImpl implements CategoryService {
         }
 
         // 按排序值升序排列
-        queryWrapper.orderByAsc(Category::getSort);
+        queryWrapper.orderByAsc(Category::getSort, Category::getId);
 
         // 执行查询
         List<Category> categoryList = categoryMapper.selectList(queryWrapper);
@@ -245,6 +245,10 @@ public class CategoryServiceImpl implements CategoryService {
 
         if (ids == null || ids.isEmpty()) {
             throw new BusinessException("分类ID列表不能为空");
+        }
+        
+        if (operation == null) {
+            throw new BusinessException("操作类型不能为空");
         }
 
         // 执行批量操作

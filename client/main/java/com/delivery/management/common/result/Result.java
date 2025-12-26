@@ -5,9 +5,6 @@ import java.io.Serializable;
 
 /**
  * 统一返回结果类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Data
 public class Result<T> implements Serializable {

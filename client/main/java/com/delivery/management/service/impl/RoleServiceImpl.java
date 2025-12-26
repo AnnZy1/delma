@@ -72,7 +72,7 @@ public class RoleServiceImpl implements RoleService {
         }
 
         // 按创建时间倒序排列
-        queryWrapper.orderByDesc(Role::getCreateTime);
+        queryWrapper.orderByDesc(Role::getCreateTime, Role::getId);
 
         // 执行查询
         List<Role> roleList = roleMapper.selectList(queryWrapper);

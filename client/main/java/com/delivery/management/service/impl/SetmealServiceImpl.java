@@ -94,7 +94,7 @@ public class SetmealServiceImpl implements SetmealService {
         }
 
         // 按创建时间倒序排列
-        queryWrapper.orderByDesc(Setmeal::getCreateTime);
+        queryWrapper.orderByDesc(Setmeal::getCreateTime, Setmeal::getId);
 
         // 执行查询
         List<Setmeal> setmealList = setmealMapper.selectList(queryWrapper);
@@ -315,16 +315,20 @@ public class SetmealServiceImpl implements SetmealService {
             throw new BusinessException("套餐ID列表不能为空");
         }
 
+        if (operation == null) {
+            throw new BusinessException("操作类型不能为空");
+        }
+
         // 执行批量操作
         switch (operation) {
             case "enable":
-                // 批量起售
+                // 批量启售
                 LambdaUpdateWrapper<Setmeal> enableWrapper = new LambdaUpdateWrapper<>();
                 enableWrapper.in(Setmeal::getId, ids);
                 enableWrapper.set(Setmeal::getStatus, 1);
                 enableWrapper.set(Setmeal::getUpdateUser, BaseContext.getCurrentId());
                 setmealMapper.update(null, enableWrapper);
-                log.info("批量起售{}个套餐成功", ids.size());
+                log.info("批量启售{}个套餐成功", ids.size());
                 break;
 
             case "disable":
@@ -361,7 +365,7 @@ public class SetmealServiceImpl implements SetmealService {
             excelDTO.setCategoryName(setmeal.getCategoryName());
             excelDTO.setPrice(setmeal.getPrice());
             excelDTO.setDescription(setmeal.getDescription());
-            excelDTO.setStatus(setmeal.getStatus() == 1 ? "起售" : "停售");
+            excelDTO.setStatus(setmeal.getStatus() == 1 ? "启售" : "停售");
             
             // 拼接关联菜品
             if (setmeal.getSetmealDishes() != null && !setmeal.getSetmealDishes().isEmpty()) {

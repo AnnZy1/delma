@@ -8,9 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Web MVC 配置类
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @Configuration

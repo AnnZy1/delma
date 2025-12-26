@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 管理员套餐控制器
- * 
- * @author system
- * @date 2025-01-15
  */
 @Slf4j
 @RestController
@@ -92,7 +89,7 @@ public class AdminSetmealController {
         setmealService.batchOperation(batchDTO);
         
         String operationName = switch (batchDTO.getOperation()) {
-            case "enable" -> "起售";
+            case "enable" -> "启售";
             case "disable" -> "停售";
             default -> "操作";
         };
